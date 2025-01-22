@@ -43,11 +43,24 @@
         <AppFormField label="Date of Service" name="dateOfService" required>
           <AppDatePicker showIcon dateFormat="mm/dd/yy" iconDisplay="input" placeholder="Date of Service" fluid />
         </AppFormField>
-        <Checkbox />
-        <RadioButton />
-        <ToggleSwitch />
+        <AppFormField label="Cities" name="cities" required>
+          <AppMultiSelect ariaLabel="Cities" class="w-full md:w-80" name="cities" :inputProps="{
+            options: cities,
+            optionLabel: 'name',
+            optionvalue: 'code',
+            placeholder: 'Select Cities',
+            showToggleAll: false,
+            filter: true,
+            maxSelectedLabels: 3,
+          }" />
+        </AppFormField>
       </template>
     </Card>
+    <div hidden>
+      <Checkbox />
+      <RadioButton />
+      <ToggleSwitch />
+    </div>
   </div>
 </template>
 
@@ -66,4 +79,17 @@ const radioOptions = [
   { value: "female", ariaLabel: "Female" },
   { value: "other", ariaLabel: "Other" },
 ];
+
+const cities = ref([
+  { name: "New York", code: "NY" },
+  { name: "Los Angeles", code: "LA" },
+  { name: "Chicago", code: "CHI" },
+  { name: "Houston", code: "HOU" },
+  { name: "Phoenix", code: "PHX" },
+  { name: "San Diego", code: "SD" },
+  { name: "Dallas", code: "DAL" },
+  { name: "San Jose", code: "SJ" },
+  { name: "Austin", code: "ATX" },
+  { name: "San Francisco", code: "SF" },
+]);
 </script>
