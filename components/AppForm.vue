@@ -6,7 +6,7 @@
 
 <script>
 import omit from '~/utils/omit';
-import { useForm } from '~/composables/useForm';
+import { useForm } from '~/composables/use-form';
 import BaseForm from './BaseForm.vue';
 
 export default {
