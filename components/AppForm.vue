@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import { omit } from '@primeuix/utils';
-import { useForm } from '@/composables/use-form';
+import omit from '~/utils/omit';
+import { useForm } from '~/composables/useForm';
 import BaseForm from './BaseForm.vue';
 
 export default {

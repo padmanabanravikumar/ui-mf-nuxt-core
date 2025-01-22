@@ -16,7 +16,7 @@
         <h3 class="m-0">Create Service</h3>
       </template>
       <template #content>
-        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues">
+        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues" :resolver>
           <AppFormField label="Name" name="name" required>
             <AppInputText type="text" name="name" placeholder="Name" />
           </AppFormField>
@@ -84,6 +84,7 @@ import Card from 'primevue/card';
 import Checkbox from 'primevue/checkbox';
 import RadioButton from 'primevue/radiobutton';
 import ToggleSwitch from 'primevue/toggleswitch';
+import { sampleSchema } from '~/utils/validation';
 
 const radioOptions = [
   { value: "male", ariaLabel: "Male" },
@@ -122,4 +123,6 @@ const initialValues = reactive({
   cities: [],
   dateOfService: null,
 });
+
+const resolver = ref(sampleSchema);
 </script>
