@@ -16,7 +16,7 @@
         <h3 class="m-0">Create Service</h3>
       </template>
       <template #content>
-        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues" :resolver>
+        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues">
           <AppFormField label="Name" name="name" required>
             <AppInputText type="text" name="name" placeholder="Name" />
           </AppFormField>
@@ -123,6 +123,4 @@ const initialValues = reactive({
   cities: [],
   dateOfService: null,
 });
-
-const resolver = ref(sampleSchema);
 </script>
