@@ -16,53 +16,55 @@
         <h3 class="m-0">Create Service</h3>
       </template>
       <template #content>
-        <AppFormField label="Name" name="name" required>
-          <AppInputText type="text" name="name" placeholder="Name" />
-        </AppFormField>
-        <AppFormField label="Email" name="email" required>
-          <AppInputText type="email" name="email" placeholder="Email" />
-        </AppFormField>
-        <AppFormField label="Age" name="age" required>
-          <AppInputNumber name="age" placeholder="Age" />
-        </AppFormField>
-        <AppFormField label="Address" name="address">
-          <AppTextArea name="address" placeholder="Address" disabled />
-        </AppFormField>
-        <AppFormField label="City" name="city" required>
-          <AppSelect name="city" placeholder="City" :options="cities" optionLabel="name" />
-        </AppFormField>
-        <AppFormField name="acceptTerms">
-          <AppCheckbox name="acceptTerms" ariaLabel="Accept Terms" />
-        </AppFormField>
-        <AppFormField label="Gender" name="gender" aria-label="Gender">
-          <AppRadioButton name="gender" :options="radioOptions" aria-label="Gender" />
-        </AppFormField>
-        <AppFormField name="rememberMe">
-          <AppToggleSwitch name="rememberMe" label="Remember Me" aria-label="Remember Me" />
-        </AppFormField>
-        <AppFormField label="Date of Service" name="dateOfService" required>
-          <AppDatePicker showIcon dateFormat="mm/dd/yy" iconDisplay="input" placeholder="Date of Service" fluid />
-        </AppFormField>
-        <AppFormField label="Cities" name="cities" required>
-          <AppMultiSelect ariaLabel="Cities" class="w-full md:w-80" name="cities" :inputProps="{
-            options: cities,
-            optionLabel: 'name',
-            optionvalue: 'code',
-            placeholder: 'Select Cities',
-            showToggleAll: false,
-            filter: true,
-            maxSelectedLabels: 3,
-          }" />
-        </AppFormField>
-        <AppFormField label="Upload Document(s)">
-          <Toast />
-          <AppInputFile :uploadedFiles="previouslyUploadedFiles" />
-        </AppFormField>
-        <div class="flex gap-16">
-          <Button type="submit" rounded label="Submit" />
-          <Button rounded label="Reset" severity="secondary" />
-          <Button rounded label="Delete" severity="danger" />
-        </div>
+        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues" :resolver>
+          <AppFormField label="Name" name="name" required>
+            <AppInputText type="text" name="name" placeholder="Name" />
+          </AppFormField>
+          <AppFormField label="Email" name="email" required>
+            <AppInputText type="email" name="email" placeholder="Email" />
+          </AppFormField>
+          <AppFormField label="Age" name="age" required>
+            <AppInputNumber name="age" placeholder="Age" />
+          </AppFormField>
+          <AppFormField label="Address" name="address">
+            <AppTextArea name="address" placeholder="Address" disabled />
+          </AppFormField>
+          <AppFormField label="City" name="city" required>
+            <AppSelect name="city" placeholder="City" :options="cities" optionLabel="name" />
+          </AppFormField>
+          <AppFormField name="acceptTerms">
+            <AppCheckbox name="acceptTerms" ariaLabel="Accept Terms" />
+          </AppFormField>
+          <AppFormField label="Gender" name="gender" aria-label="Gender">
+            <AppRadioButton name="gender" :options="radioOptions" aria-label="Gender" />
+          </AppFormField>
+          <AppFormField name="rememberMe">
+            <AppToggleSwitch name="rememberMe" label="Remember Me" aria-label="Remember Me" />
+          </AppFormField>
+          <AppFormField label="Date of Service" name="dateOfService" required>
+            <AppDatePicker showIcon dateFormat="mm/dd/yy" iconDisplay="input" placeholder="Date of Service" fluid />
+          </AppFormField>
+          <AppFormField label="Cities" name="cities" required>
+            <AppMultiSelect ariaLabel="Cities" class="w-full md:w-80" name="cities" :inputProps="{
+              options: cities,
+              optionLabel: 'name',
+              optionvalue: 'code',
+              placeholder: 'Select Cities',
+              showToggleAll: false,
+              filter: true,
+              maxSelectedLabels: 3,
+            }" />
+          </AppFormField>
+          <AppFormField label="Upload Document(s)">
+            <Toast />
+            <AppInputFile :uploadedFiles="previouslyUploadedFiles" />
+          </AppFormField>
+          <div class="flex gap-16">
+            <Button type="submit" rounded label="Submit" />
+            <Button rounded label="Reset" severity="secondary" />
+            <Button rounded label="Delete" severity="danger" />
+          </div>
+        </AppForm>
       </template>
     </Card>
     <div hidden>
@@ -82,6 +84,7 @@ import Card from 'primevue/card';
 import Checkbox from 'primevue/checkbox';
 import RadioButton from 'primevue/radiobutton';
 import ToggleSwitch from 'primevue/toggleswitch';
+import { sampleSchema } from '~/utils/validation';
 
 const radioOptions = [
   { value: "male", ariaLabel: "Male" },
@@ -106,4 +109,20 @@ const previouslyUploadedFiles = reactive([{
   name: 'Fruit.png',
   url: "https://fastly.picsum.photos/id/674/300/300.jpg?hmac=VfiUNKIvgDHvUHdYMaz7o1kmDNEFCRNm7ng9EA_W5DE"
 }]);
+
+const initialValues = reactive({
+  email: "",
+  name: "",
+  age: 0,
+  city: null,
+  acceptTerms: false,
+  disabled: "",
+  address: "",
+  gender: "male",
+  rememberMe: true,
+  cities: [],
+  dateOfService: null,
+});
+
+const resolver = ref(sampleSchema);
 </script>
