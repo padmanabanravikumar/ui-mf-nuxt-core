@@ -54,4 +54,13 @@ import InputText from 'primevue/inputtext';
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import Card from 'primevue/card';
+import Checkbox from 'primevue/checkbox';
+import RadioButton from 'primevue/radiobutton';
+import ToggleSwitch from 'primevue/toggleswitch';
+
+const radioOptions = [
+  { value: "male", ariaLabel: "Male" },
+  { value: "female", ariaLabel: "Female" },
+  { value: "other", ariaLabel: "Other" },
+];
 </script>
