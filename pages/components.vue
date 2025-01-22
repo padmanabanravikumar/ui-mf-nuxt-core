@@ -43,6 +43,9 @@
         <AppFormField label="Date of Service" name="dateOfService" required>
           <AppDatePicker showIcon dateFormat="mm/dd/yy" iconDisplay="input" placeholder="Date of Service" fluid />
         </AppFormField>
+        <Checkbox />
+        <RadioButton />
+        <ToggleSwitch />
       </template>
     </Card>
   </div>
