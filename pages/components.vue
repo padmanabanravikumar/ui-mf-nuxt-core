@@ -54,6 +54,15 @@
             maxSelectedLabels: 3,
           }" />
         </AppFormField>
+        <AppFormField label="Upload Document(s)">
+          <Toast />
+          <AppInputFile :uploadedFiles="previouslyUploadedFiles" />
+        </AppFormField>
+        <div class="flex gap-16">
+          <Button type="submit" rounded label="Submit" />
+          <Button rounded label="Reset" severity="secondary" />
+          <Button rounded label="Delete" severity="danger" />
+        </div>
       </template>
     </Card>
     <div hidden>
@@ -92,4 +101,9 @@ const cities = ref([
   { name: "Austin", code: "ATX" },
   { name: "San Francisco", code: "SF" },
 ]);
+
+const previouslyUploadedFiles = reactive([{
+  name: 'Fruit.png',
+  url: "https://fastly.picsum.photos/id/674/300/300.jpg?hmac=VfiUNKIvgDHvUHdYMaz7o1kmDNEFCRNm7ng9EA_W5DE"
+}]);
 </script>
