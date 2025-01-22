@@ -19,6 +19,30 @@
         <AppFormField label="Name" name="name" required>
           <AppInputText type="text" name="name" placeholder="Name" />
         </AppFormField>
+        <AppFormField label="Email" name="email" required>
+          <AppInputText type="email" name="email" placeholder="Email" />
+        </AppFormField>
+        <AppFormField label="Age" name="age" required>
+          <AppInputNumber name="age" placeholder="Age" />
+        </AppFormField>
+        <AppFormField label="Address" name="address">
+          <AppTextArea name="address" placeholder="Address" disabled />
+        </AppFormField>
+        <AppFormField label="City" name="city" required>
+          <AppSelect name="city" placeholder="City" :options="cities" optionLabel="name" />
+        </AppFormField>
+        <AppFormField name="acceptTerms">
+          <AppCheckbox name="acceptTerms" ariaLabel="Accept Terms" />
+        </AppFormField>
+        <AppFormField label="Gender" name="gender" aria-label="Gender">
+          <AppRadioButton name="gender" :options="radioOptions" aria-label="Gender" />
+        </AppFormField>
+        <AppFormField name="rememberMe">
+          <AppToggleSwitch name="rememberMe" label="Remember Me" aria-label="Remember Me" />
+        </AppFormField>
+        <AppFormField label="Date of Service" name="dateOfService" required>
+          <AppDatePicker showIcon dateFormat="mm/dd/yy" iconDisplay="input" placeholder="Date of Service" fluid />
+        </AppFormField>
       </template>
     </Card>
   </div>
