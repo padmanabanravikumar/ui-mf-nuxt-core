@@ -84,7 +84,6 @@ import Card from 'primevue/card';
 import Checkbox from 'primevue/checkbox';
 import RadioButton from 'primevue/radiobutton';
 import ToggleSwitch from 'primevue/toggleswitch';
-import { sampleSchema } from '~/utils/validation';
 
 const radioOptions = [
   { value: "male", ariaLabel: "Male" },
