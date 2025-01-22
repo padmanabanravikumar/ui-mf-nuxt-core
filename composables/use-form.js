@@ -1,4 +1,7 @@
-import { isArray, isNotEmpty, mergeKeys, resolve } from "@primeuix/utils";
+import isArray from '~/utils/isArray';
+import isNotEmpty from '~/utils/isNotEmpty';
+import mergeKeys from '~/utils/mergeKeys';
+import resolve from '~/utils/resolve';
 import {
   computed,
   getCurrentInstance,
