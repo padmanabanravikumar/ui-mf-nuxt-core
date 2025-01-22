@@ -13,6 +13,9 @@
             <li>
               <NuxtLink to="/users">Users</NuxtLink>
             </li>
+            <li>
+              <NuxtLink to="/users/new">New User</NuxtLink>
+            </li>
           </ul>
         </nav>
       </header>
