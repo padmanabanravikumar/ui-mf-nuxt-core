@@ -1,0 +1,30 @@
+h1 {
+  color: var(--p-sky-500);
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--p-primary-color);
+  text-transform: uppercase;
+}
+
+.p-fileupload-basic {
+  justify-content: start !important;
+}
+
+.p-dialog {
+  min-width: 400px;
+}
+
+.p-dialog:not(.p-confirmdialog) > .p-dialog-header {
+  display: none;
+}
+
+.p-toggleswitch-input:not(:checked) ~ .p-toggleswitch-slider .p-toggleswitch-handle {
+  box-shadow: 0 0 0 1px var(--p-surface-300);
+}
+
+.p-datatable-flex-scrollable > .p-datatable-table-container {
+  flex: unset !important;
+  height: unset !important;
+}
