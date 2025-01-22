@@ -11,6 +11,16 @@
         <Button rounded label="Login" />
       </div>
     </div>
+    <Card class="mt-16">
+      <template #title>
+        <h3 class="m-0">Create Service</h3>
+      </template>
+      <template #content>
+        <AppFormField label="Name" name="name" required>
+          <AppInputText type="text" name="name" placeholder="Name" />
+        </AppFormField>
+      </template>
+    </Card>
   </div>
 </template>
 
@@ -19,4 +29,5 @@ import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
+import Card from 'primevue/card';
 </script>
