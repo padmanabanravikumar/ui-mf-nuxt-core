@@ -63,12 +63,12 @@
         <h3 class="m-0">Products</h3>
       </template>
       <template #content>
-        <AppDataTable :value="products" tableStyle="min-width: 50rem">
-          <AppColumn field="code" header="Code" />
-          <AppColumn field="name" header="Name" />
-          <AppColumn field="category" header="Category" />
-          <AppColumn field="quantity" header="Quantity" />
-        </AppDataTable>
+        <DataTable :value="products" tableStyle="min-width: 50rem">
+          <Column field="code" header="Code"></Column>
+          <Column field="name" header="Name"></Column>
+          <Column field="category" header="Category"></Column>
+          <Column field="quantity" header="Quantity"></Column>
+        </DataTable>
       </template>
     </AppCard>
   </div>
