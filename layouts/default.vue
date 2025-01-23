@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="flex container">
-      <AppSidebar :routes="config" class="shrink-0" />
+      <AppSidebar :routes="routes" class="shrink-0" />
       <div class="content-container" ref="pageContainer" v-on:scroll="handleScroll">
         <TopNavbar :isScrolled="isScrolled" />
         <div class="main-container">
@@ -13,30 +13,35 @@
 </template>
 
 <script setup>
-const config = {
-  routes: [
-    {
-      title: 'Home',
-      icon: 'home',
-      route: '/',
-    },
-    {
-      title: 'Components',
-      icon: 'cube',
-      route: '/components',
-    },
-    {
-      title: 'Users',
-      icon: 'users',
-      route: '/users/list',
-    },
-    {
-      title: 'New User',
-      icon: 'user-plus',
-      route: '/users/new',
-    },
-  ],
-}
+const routes = [
+  {
+    label: 'Home',
+    icon: 'home',
+    path: '/',
+  },
+  {
+    label: 'Components',
+    icon: 'cube',
+    path: '/components',
+  },
+  {
+    label: 'Administation',
+    icon: 'cog',
+    submenus: [
+      {
+        label: 'Users',
+        icon: 'users',
+        path: '/users/list',
+      },
+      {
+        label: 'New User',
+        icon: 'user-plus',
+        path: '/users/new',
+      },
+    ]
+  }
+];
+
 const isScrolled = ref(false);
 const pageContainer = useTemplateRef('pageContainer');
 const handleScroll = () => {

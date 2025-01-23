@@ -1,16 +1,21 @@
 <template>
   <ul class="layout-menu">
-    <template v-for="menuItemProps in menu" :key="item">
-      <AppMenuItem :menuItemProps />
+    <template v-for="(item, index) in menus" :key="index">
+      <AppMenuItem :menuItem="item" />
     </template>
   </ul>
 </template>
 
-<script setup>
-withDefaults(defineProps(), {
-  menu: () => []
-})
-
+<script>
+export default {
+  name: 'AppMenu',
+  props: {
+    menus: {
+      type: Array,
+      default: () => []
+    }
+  }
+}
 </script>
 
 <style scoped>

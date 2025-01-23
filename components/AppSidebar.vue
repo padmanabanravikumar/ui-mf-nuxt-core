@@ -4,16 +4,21 @@
       <img class="brand" src="/logo.png" />
     </div>
     <nav class="main-menu">
-      <AppMenu :menu="routes" />
+      <AppMenu :menus="routes" />
     </nav>
   </div>
 </template>
 
-<script setup>
-withDefaults(defineProps(), {
-  routes: () => []
-});
-
+<script>
+export default {
+  name: 'AppSidebar',
+  props: {
+    routes: {
+      type: Array,
+      default: () => []
+    }
+  }
+}
 </script>
 
 <style>
