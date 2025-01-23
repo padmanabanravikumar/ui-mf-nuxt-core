@@ -3,19 +3,19 @@
     <div class="flex justify-between items-center">
       <h2 class="m-0">Components Example</h2>
       <div class="flex gap-16">
-        <IconField>
-          <InputIcon class="pi pi-search" />
-          <InputText placeholder="Search Services" />
-        </IconField>
+        <AppIconField>
+          <AppInputIcon class="pi pi-search" />
+          <AppInputText placeholder="Search Services" />
+        </AppIconField>
         <AppButton label="Create Service" />
       </div>
     </div>
-    <Card class="mt-16">
+    <AppCard class="mt-16">
       <template #title>
         <h3 class="m-0">Create Service</h3>
       </template>
       <template #content>
-        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues" :resolver>
+        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues">
           <AppFormField label="Name" name="name" required>
             <AppInputText type="text" name="name" placeholder="Name" />
           </AppFormField>
@@ -57,33 +57,27 @@
           </div>
         </AppForm>
       </template>
-    </Card>
-    <Card class="mt-16">
+    </AppCard>
+    <AppCard class="mt-16">
       <template #title>
         <h3 class="m-0">Products</h3>
       </template>
       <template #content>
-        <DataTable :value="products" tableStyle="min-width: 50rem">
-          <Column field="code" header="Code"></Column>
-          <Column field="name" header="Name"></Column>
-          <Column field="category" header="Category"></Column>
-          <Column field="quantity" header="Quantity"></Column>
-        </DataTable>
+        <AppDataTable :value="products" tableStyle="min-width: 50rem">
+          <AppColumn field="code" header="Code" />
+          <AppColumn field="name" header="Name" />
+          <AppColumn field="category" header="Category" />
+          <AppColumn field="quantity" header="Quantity" />
+        </AppDataTable>
       </template>
-    </Card>
+    </AppCard>
   </div>
 </template>
 
 <script setup>
-import InputText from 'primevue/inputtext';
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
-import Card from 'primevue/card';
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import { sampleSchema } from '~/utils/validation';
+// import { sampleSchema } from '~/utils/validation';
 
-const resolver = ref(sampleSchema);
+// const resolver = ref(sampleSchema);
 
 const products = [{
   code: '001',
