@@ -44,15 +44,8 @@
             <AppDatePicker showIcon dateFormat="mm/dd/yy" iconDisplay="input" placeholder="Date of Service" fluid />
           </AppFormField>
           <AppFormField label="Cities" name="cities" required>
-            <AppMultiSelect ariaLabel="Cities" class="w-full md:w-80" name="cities" :inputProps="{
-              options: cities,
-              optionLabel: 'name',
-              optionvalue: 'code',
-              placeholder: 'Select Cities',
-              showToggleAll: false,
-              filter: true,
-              maxSelectedLabels: 3,
-            }" />
+            <AppMultiSelect :options="cities" optionLabel="name" optionValue="code" placeholder="Select Cities"
+              :maxSelectedLabels="3" :showToggleAll="false" />
           </AppFormField>
           <AppFormField label="Upload Document(s)">
             <AppInputFile :uploadedFiles="previouslyUploadedFiles" />
