@@ -9,11 +9,9 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import type { NavbarDto } from '@/shared/types';
-
-withDefaults(defineProps<NavbarDto>(), {
-  routes: () => [] as NavbarDto['routes']
+<script setup>
+withDefaults(defineProps(), {
+  routes: () => []
 });
 
 </script>

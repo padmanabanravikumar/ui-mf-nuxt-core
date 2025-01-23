@@ -25,15 +25,14 @@
   </li>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { onBeforeMount, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import type { RouteDto } from '@/shared/types';
 
 const route = useRoute();
 
-const props = withDefaults(defineProps<{ menuItemProps: RouteDto }>(), {
-  menuItemProps: () => ({} as RouteDto)
+const props = withDefaults(defineProps(), {
+  menuItemProps: () => ({})
 });
 
 const isOpen = ref(false);

@@ -1,16 +1,14 @@
 <template>
   <ul class="layout-menu">
     <template v-for="menuItemProps in menu" :key="item">
-      <app-menu-item :menuItemProps app-menu-item />
+      <AppMenuItem :menuItemProps />
     </template>
   </ul>
 </template>
 
-<script setup lang="ts">
-import type { RouteDto } from '~/shared/types';
-
-withDefaults(defineProps<{ menu: RouteDto[] }>(), {
-  menu: () => [] as RouteDto[]
+<script setup>
+withDefaults(defineProps(), {
+  menu: () => []
 })
 
 </script>
