@@ -1,7 +1,4 @@
-import isArray from '~/utils/isArray';
-import isNotEmpty from '~/utils/isNotEmpty';
-import mergeKeys from '~/utils/mergeKeys';
-import resolve from '~/utils/resolve';
+import { isArray, isNotEmpty, mergeKeys, resolve } from "@primeuix/utils";
 import {
   computed,
   getCurrentInstance,
@@ -140,13 +137,13 @@ export const useForm = (options = {}) => {
 
   const handleReset = (callback) => {
     return async (event) => {
-        reset();
+      reset();
 
-        return callback({
-            originalEvent: event
-        });
+      return callback({
+        originalEvent: event,
+      });
     };
-};
+  };
 
   const validate = async (field) => {
     const resolverOptions = Object.entries(states).reduce(

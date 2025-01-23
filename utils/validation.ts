@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { yupResolver } from './yupResolver';
+import { yupResolver } from '@primeuix/forms/resolvers/yup';
 
 export const sampleSchema = yupResolver(yup.object().shape({
   email: yup.string().trim()

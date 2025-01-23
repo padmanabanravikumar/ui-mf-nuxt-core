@@ -946,6 +946,13 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.28.tgz#d45e01c4a56f143ee69c54dd6b12eade9e270a73"
   integrity sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==
 
+"@primeuix/forms@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@primeuix/forms/-/forms-0.0.3.tgz#763ad0fddcf2368dffa297b9f7acdeae55345886"
+  integrity sha512-k2MeLb7/B5TUhpBe/Q7z9+EQuu3/gzvv7J0tDxSjkuf/RAqa8hI02M3TZAuZ4PbIqB1GxxHHbBL3tOrGBDJykw==
+  dependencies:
+    "@primeuix/utils" "^0.4.0"
+
 "@primeuix/styled@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@primeuix/styled/-/styled-0.3.2.tgz#a6093e81a66fc78b915b5e8d998cc73c2c47a1dc"
@@ -957,6 +964,11 @@
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@primeuix/utils/-/utils-0.3.2.tgz#dbf92f6b5e18abe214f592a0b51bf4ca02a1f808"
   integrity sha512-B+nphqTQeq+i6JuICLdVWnDMjONome2sNz0xI65qIOyeB4EF12CoKRiCsxuZ5uKAkHi/0d1LqlQ9mIWRSdkavw==
+
+"@primeuix/utils@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@primeuix/utils/-/utils-0.4.0.tgz#5b7cfccef637f397903e251a25ade0ecaff17cd9"
+  integrity sha512-Z4Z0Ml1jc8cbReJsxctqET4kzRUnBoWu4Rcr5xBdiMN6mv1VyKVph6tF5bBh4lbvsdIyJmzaqAHSRNUgH8dylQ==
 
 "@primevue/auto-import-resolver@4.2.5":
   version "4.2.5"
