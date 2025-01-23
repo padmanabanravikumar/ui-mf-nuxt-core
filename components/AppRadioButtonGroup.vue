@@ -1,7 +1,7 @@
 <template>
   <div :class="cx('root')" v-bind="ptmi('root')">
     <slot>
-      <div class="flex items-center gap-2" v-for="option in options" :key="option.value">
+      <div class="flex items-center gap-8" v-for="option in options" :key="option.value">
         <AppRadioButton inputId="option.value" :value="option.value" />
         <label :for="option.value">{{ option.label }}</label>
       </div>
