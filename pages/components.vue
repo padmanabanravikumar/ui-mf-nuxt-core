@@ -15,7 +15,7 @@
         <h3 class="m-0">Create Service</h3>
       </template>
       <template #content>
-        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues">
+        <AppForm class="inline-flex flex-column gap-16 mt-16" :initialValues="initialValues" :resolver>
           <AppFormField label="Name" name="name" required>
             <AppInputText type="text" name="name" placeholder="Name" />
           </AppFormField>
@@ -77,9 +77,9 @@
 <script setup>
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
-// import { sampleSchema } from '~/utils/validation';
+import { sampleSchema } from '~/utils/validation';
 
-// const resolver = ref(sampleSchema);
+const resolver = ref(sampleSchema);
 
 const products = [{
   code: '001',
