@@ -21,5 +21,8 @@ export default defineNuxtConfig({
     '/components': {
       ssr: false
     }
+  },
+  alias: {
+    yup: 'yup'
   }
 })
