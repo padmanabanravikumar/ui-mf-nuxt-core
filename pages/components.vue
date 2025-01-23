@@ -7,7 +7,7 @@
           <InputIcon class="pi pi-search" />
           <InputText placeholder="Search Services" />
         </IconField>
-        <AppButton rounded label="Create Service" />
+        <AppButton label="Create Service" />
       </div>
     </div>
     <Card class="mt-16">
