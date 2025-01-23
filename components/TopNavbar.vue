@@ -19,8 +19,10 @@
   </div>
 </template>
 
-
 <script setup>
+import Button from 'primevue/button';
+import Avatar from 'primevue/avatar';
+
 defineProps({
   isScrolled: {
     type: Boolean,
