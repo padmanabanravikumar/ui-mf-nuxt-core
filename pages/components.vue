@@ -51,7 +51,7 @@
             <AppInputFile :uploadedFiles="previouslyUploadedFiles" />
           </AppFormField>
           <div class="flex gap-16">
-            <AppButton type="submit" label="Submit" />
+            <AppButton type="submit" label="Submit" v-on:click="save" />
             <AppButton label="Reset" severity="secondary" />
             <AppButton label="Delete" severity="danger" />
           </div>
@@ -78,6 +78,17 @@
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import { sampleSchema } from '~/utils/validation';
+import { useToast } from '#imports';
+const toast = useToast();
+
+const save = () => {
+  toast.add({
+    severity: 'success',
+    summary: 'Success Message',
+    detail: 'Order submitted',
+    life: 3000
+  });
+};
 
 const resolver = ref(sampleSchema);
 
