@@ -8,9 +8,9 @@
       <label v-if="label" :class="size">{{ label }} <span v-if="required" class="required">*</span></label>
       <slot :props="field.props" v-bind="fieldAttrs"></slot>
     </template>
-    <Message v-if="fieldAttrs?.invalid" severity="error" size="small" variant="simple">
+    <AppMessage v-if="fieldAttrs?.invalid" severity="error" size="small" variant="simple">
       {{ fieldAttrs.error?.message }}
-    </Message>
+    </AppMessage>
   </component>
   <slot v-else :class="cx('root')" :props="field.props" v-bind="fieldAttrs"></slot>
 </template>
