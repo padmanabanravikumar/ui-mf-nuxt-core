@@ -64,6 +64,9 @@ export default {
     $route() {
       this.isOpen = this.isActive;
     }
+  },
+  beforeMount() {
+    this.isOpen = this.isActive;
   }
 }
 </script>
