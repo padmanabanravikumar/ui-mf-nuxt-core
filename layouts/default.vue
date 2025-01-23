@@ -11,7 +11,7 @@
               <NuxtLink to="/components">Components Example</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/users">Users</NuxtLink>
+              <NuxtLink to="/users/list">Users</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/users/new">New User</NuxtLink>
