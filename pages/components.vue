@@ -31,14 +31,14 @@
           <AppFormField label="City" name="city" required>
             <AppSelect name="city" placeholder="City" :options="cities" optionLabel="name" />
           </AppFormField>
-          <AppFormField name="acceptTerms">
-            <AppCheckbox name="acceptTerms" ariaLabel="Accept Terms" />
+          <AppFormField name="acceptTerms" label="Accept Terms" horiz>
+            <AppCheckbox name="acceptTerms" />
           </AppFormField>
           <AppFormField label="Gender" name="gender" aria-label="Gender">
             <AppRadioButton name="gender" :options="radioOptions" aria-label="Gender" />
           </AppFormField>
-          <AppFormField name="rememberMe">
-            <AppToggleSwitch name="rememberMe" label="Remember Me" aria-label="Remember Me" />
+          <AppFormField name="rememberMe" label="Remember Me" horiz>
+            <AppToggleSwitch name="rememberMe" />
           </AppFormField>
           <AppFormField label="Date of Service" name="dateOfService" required>
             <AppDatePicker showIcon dateFormat="mm/dd/yy" iconDisplay="input" placeholder="Date of Service" fluid />

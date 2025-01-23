@@ -1,8 +1,8 @@
 <template>
   <component v-if="!asChild" :is="as" class="flex flex-column gap-4" :class="cx('root')" v-bind="ptmi('root')">
-    <div v-if="horiz" class="flex items-center" :class="alignClass">
-      <label v-if="label" :class="size" :for="inputId">{{ label }} <span v-if="required" class="required">*</span></label>
+    <div v-if="horiz" class="flex items-center gap-8" :class="alignClass">
       <slot :props="field.props" v-bind="fieldAttrs"></slot>
+      <label v-if="label" :class="size" :for="inputId">{{ label }} <span v-if="required" class="required">*</span></label>
     </div>
     <template v-else>
       <label v-if="label" :class="size">{{ label }} <span v-if="required" class="required">*</span></label>
