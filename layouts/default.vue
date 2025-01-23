@@ -4,15 +4,28 @@
       <AppSidebar :routes="routes" class="shrink-0" />
       <div class="content-container" ref="pageContainer" v-on:scroll="handleScroll">
         <TopNavbar :isScrolled="isScrolled" />
-        <div class="main-container">
+        <div class="main-container" v-on:click="onShow">
           <slot />
         </div>
       </div>
     </div>
+    <Toast />
   </div>
 </template>
 
 <script setup>
+import { useToast } from '#imports';
+const toast = useToast();
+
+const onShow = () => {
+  toast.add({
+    severity: 'success',
+    summary: 'Success Message',
+    detail: 'Order submitted',
+    life: 3000
+  });
+};
+
 const routes = [
   {
     label: 'Home',
