@@ -65,7 +65,7 @@ export default {
       this.isOpen = this.isActive;
     }
   },
-  beforeMount() {
+  mounted() {
     this.isOpen = this.isActive;
   }
 }
