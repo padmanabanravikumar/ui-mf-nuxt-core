@@ -14,6 +14,7 @@
 </template>
 
 <script setup>
+import Toast from 'primevue/toast';
 import { useToast } from '#imports';
 const toast = useToast();
 
