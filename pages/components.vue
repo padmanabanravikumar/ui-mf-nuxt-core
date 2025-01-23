@@ -34,8 +34,8 @@
           <AppFormField name="acceptTerms" label="Accept Terms" horiz>
             <AppCheckbox name="acceptTerms" />
           </AppFormField>
-          <AppFormField label="Gender" name="gender" aria-label="Gender">
-            <AppRadioButton name="gender" :options="radioOptions" aria-label="Gender" />
+          <AppFormField label="Gender" name="gender">
+            <AppRadioButtonGroup name="gender" :options="radioOptions" />
           </AppFormField>
           <AppFormField name="rememberMe" label="Remember Me" horiz>
             <AppToggleSwitch name="rememberMe" />
@@ -126,9 +126,9 @@ const products = [{
 }];
 
 const radioOptions = [
-  { value: "male", ariaLabel: "Male" },
-  { value: "female", ariaLabel: "Female" },
-  { value: "other", ariaLabel: "Other" },
+  { value: "male", label: "Male" },
+  { value: "female", label: "Female" },
+  { value: "other", label: "Other" },
 ];
 
 const cities = ref([
