@@ -7,7 +7,7 @@
           <InputIcon class="pi pi-search" />
           <InputText placeholder="Search Services" />
         </IconField>
-        <Button rounded label="Create Service" />
+        <AppButton rounded label="Create Service" />
       </div>
     </div>
     <Card class="mt-16">
@@ -51,9 +51,9 @@
             <AppInputFile :uploadedFiles="previouslyUploadedFiles" />
           </AppFormField>
           <div class="flex gap-16">
-            <Button type="submit" rounded label="Submit" />
-            <Button rounded label="Reset" severity="secondary" />
-            <Button rounded label="Delete" severity="danger" />
+            <AppButton type="submit" label="Submit" />
+            <AppButton label="Reset" severity="secondary" />
+            <AppButton label="Delete" severity="danger" />
           </div>
         </AppForm>
       </template>
@@ -71,23 +71,14 @@
         </DataTable>
       </template>
     </Card>
-    <div hidden>
-      <Checkbox />
-      <RadioButton />
-      <ToggleSwitch />
-    </div>
   </div>
 </template>
 
 <script setup>
-import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import IconField from 'primevue/iconfield';
 import InputIcon from 'primevue/inputicon';
 import Card from 'primevue/card';
-import Checkbox from 'primevue/checkbox';
-import RadioButton from 'primevue/radiobutton';
-import ToggleSwitch from 'primevue/toggleswitch';
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 
