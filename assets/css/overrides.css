@@ -16,10 +16,6 @@ h2 {
   min-width: 400px;
 }
 
-.p-dialog:not(.p-confirmdialog) > .p-dialog-header {
-  display: none;
-}
-
 .p-toggleswitch-input:not(:checked) ~ .p-toggleswitch-slider .p-toggleswitch-handle {
   box-shadow: 0 0 0 1px var(--p-surface-300);
 }

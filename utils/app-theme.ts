@@ -35,6 +35,11 @@ const AppTheme = definePreset(Material, {
     },
     button: {
       iconOnlyWidth: '46px'
+    },
+    dialog: {
+      header: {
+        padding: '16px 24px'
+      }
     }
   }
 });

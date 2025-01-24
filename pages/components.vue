@@ -71,6 +71,31 @@
         </DataTable>
       </template>
     </AppCard>
+    <AppCard class="mt-16">
+      <template #title>
+        <h3 class="m-0">Dialog</h3>
+      </template>
+      <template #content>
+        <AppButton label="Show" @click="visible = true" />
+        <AppDialog :visible header="Edit Profile" @close="visible = false">
+          <div class="flex flex-column gap-16">
+            <span class="text-surface-500 dark:text-surface-400 block">Update your information.</span>
+            <div class="flex flex-column gap-4">
+              <label for="username" class="font-semibold w-24">Username</label>
+              <AppInputText id="username" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex flex-column gap-4">
+              <label for="email" class="font-semibold w-24">Email</label>
+              <AppInputText id="email" class="flex-auto" autocomplete="off" />
+            </div>
+            <div class="flex justify-end gap-4">
+              <AppButton type="button" label="Cancel" severity="secondary" @click="visible = false" />
+              <AppButton type="button" label="Save" @click="visible = false" />
+            </div>
+          </div>
+        </AppDialog>
+      </template>
+    </AppCard>
   </div>
 </template>
 
@@ -79,6 +104,9 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import { sampleSchema } from '~/utils/validation';
 import { useToast } from '#imports';
+
+const visible = ref(false);
+
 const toast = useToast();
 
 const save = () => {
