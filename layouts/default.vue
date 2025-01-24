@@ -29,6 +29,8 @@ const onShow = () => {
 
 const appConfig = useAppConfig();
 
+console.log(appConfig.routes);
+
 const routes = Object.values(appConfig.routes).flat();
 
 const isScrolled = ref(false);
