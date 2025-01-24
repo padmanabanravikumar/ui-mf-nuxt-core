@@ -27,34 +27,9 @@ const onShow = () => {
   });
 };
 
-const routes = [
-  {
-    label: 'Home',
-    icon: 'home',
-    path: '/',
-  },
-  {
-    label: 'Components',
-    icon: 'cube',
-    path: '/components',
-  },
-  {
-    label: 'Administation',
-    icon: 'cog',
-    submenus: [
-      {
-        label: 'Users',
-        icon: 'users',
-        path: '/users/list',
-      },
-      {
-        label: 'New User',
-        icon: 'user-plus',
-        path: '/users/new',
-      },
-    ]
-  }
-];
+const appConfig = useAppConfig();
+
+const routes = Object.values(appConfig.routes).flat();
 
 const isScrolled = ref(false);
 const pageContainer = useTemplateRef('pageContainer');
