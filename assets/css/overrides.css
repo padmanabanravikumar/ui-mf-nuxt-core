@@ -24,3 +24,9 @@ h2 {
   flex: unset !important;
   height: unset !important;
 }
+
+tbody.p-datatable-tbody td {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

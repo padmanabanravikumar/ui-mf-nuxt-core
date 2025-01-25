@@ -24,5 +24,6 @@ export default defineNuxtConfig({
   },
   alias: {
     yup: 'yup'
-  }
+  },
+  ssr: false,
 })
