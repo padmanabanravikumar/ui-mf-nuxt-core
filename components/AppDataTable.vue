@@ -2,9 +2,15 @@
   <DataTable :value="values" :removableSort :scrollable :stripedRows :showGridlines :paginator :size :rows
     :filterDisplay :scrollHeight :globalFilterFields :resizableColumns :filters :totalRecords :dataKey :rowHover
     :loading v-on:update:filters="onFilter" v-on:sort="onSort" v-on:page="onPage" :lazy>
-    <Column v-for="column of columns" :key="column.field" v-bind="column">
-      <template v-if="column.filter" #filter="{ filterModel, filterCallback }">
+    <Column v-for="column of d_columns" :key="column.field" v-bind="column">
+      <template v-if="$slots[column.filterSlot]" #filter="slotProps">
+        <slot :name="column.filterSlot" v-bind="slotProps" />
+      </template>
+      <template v-else-if="column.filter" #filter="{ filterModel, filterCallback }">
         <AppInputText v-model="filterModel.value" @input="filterCallback()" size="small" placeholder="Search by name" />
+      </template>
+      <template v-if="$slots[column.field]" #body="slotProps">
+        <slot :name="column.field" v-bind="slotProps" />
       </template>
     </Column>
   </DataTable>
@@ -94,6 +100,17 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    d_columns() {
+      return this.columns.map(column => {
+        return {
+          ...column,
+          showFilterMenu: column.showFilterMenu || false,
+          filterSlot: `${column.field}Filter`
+        }
+      });
     }
   },
   methods: {

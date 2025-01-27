@@ -1,6 +1,22 @@
 <template>
   <AppDataTable :values="users" :columns scrollHeight="calc(100vh - 240px)" :filters :totalRecords="1000"
-    :loading="false" v-on:sort="onSort" v-on:filters="onFilterChange" v-on:page="onPage" />
+    v-on:sort="onSort" v-on:filters="onFilterChange" v-on:page="onPage">
+    <template #approvalOn="{ data }">
+      {{ formatDate(data.approvalOn) }}
+    </template>
+    <template #profiles="{ data }">
+      {{ aggregate(data.profiles) }}
+    </template>
+    <template #profilesFilter="{ filterModel }">
+      <Select v-model="filterModel.value" :options="profiles" optionLabel="name" placeholder="Filter by Profile" />
+    </template>
+    <template #userTypes="{ data }">
+      {{ aggregate(data.userTypes) }}
+    </template>
+    <template #createdOn="{ data }">
+      {{ formatDate(data.createdOn) }} by {{ data.createdBy }}
+    </template>
+  </AppDataTable>
 </template>
 
 <script setup>
@@ -8,32 +24,31 @@ import users from './users.json';
 import { FilterMatchMode } from '@primevue/core/api';
 
 for (const user of users) {
-  user.aggregateProfiles = aggregate(user.profiles);
-  user.aggregateUserTypes = aggregate(user.userTypes);
-  user.created = `${formatDate(user.createdOn)} by ${user.createdBy}`;
   user.modified = `${formatDate(user.modifiedOn)} by ${user.modifiedBy}`;
-  user.approvalOnDate = formatDate(user.approvalOn);
 }
+
+const profiles = [{ name: 'Gaffer', code: 'Gaffer' }, { name: 'Admin', code: 'Admin' }, { name: 'User', code: 'User' }];
 
 const columns = [
   { field: 'username', header: 'Username', sortable: true, filter: true },
   { field: 'firstName', header: 'First Name', sortable: true, filter: true },
   { field: 'lastName', header: 'Last Name', sortable: true, filter: true },
-  { field: 'aggregateProfiles', header: 'Profiles' },
-  { field: 'aggregateUserTypes', header: 'User Types' },
+  { field: 'profiles', header: 'Profiles' },
+  { field: 'userTypes', header: 'User Types' },
   { field: 'email', header: 'Email', sortable: true, filter: true },
   { field: 'phoneNumber', header: 'Phone Number', sortable: true, filter: true },
-  { field: 'created', header: 'Created', sortable: true },
-  { field: 'modified', header: 'Last Modified', sortable: true },
-  { field: 'approvalBy', header: 'Approval By', sortable: true, filter: true },
-  { field: 'approvalOnDate', header: 'Approval On', sortable: true },
-  { field: 'approvalReferenceNo', header: 'Approval Reference No', sortable: true, filter: true },
+  { field: 'createdOn', header: 'Created', sortable: true },
+  { field: 'modified', sortField: 'modifiedOn', header: 'Last Modified', sortable: true },
+  { field: 'approvalBy', header: 'Approval By', sortable: true, filter: true, hidden: true },
+  { field: 'approvalOn', header: 'Approval On', sortable: true },
+  { field: 'approvalReferenceNo', header: 'Approval Reference No', sortable: true, filter: true, hidden: true }
 ];
 
 const filters = {
   username: { value: null, matchMode: FilterMatchMode.CONTAINS },
   firstName: { value: null, matchMode: FilterMatchMode.CONTAINS },
   lastName: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  profiles: { value: null, matchMode: FilterMatchMode.IN },
   email: { value: null, matchMode: FilterMatchMode.CONTAINS },
   phoneNumber: { value: null, matchMode: FilterMatchMode.CONTAINS },
   approvalBy: { value: null, matchMode: FilterMatchMode.CONTAINS },
