@@ -7,7 +7,8 @@
         <slot :name="column.filterSlot" v-bind="slotProps" />
       </template>
       <template v-else-if="column.filter" #filter="{ filterModel, filterCallback }">
-        <AppInputText v-model="filterModel.value" @input="filterCallback()" size="small" placeholder="Search by name" />
+        <AppInputText v-model="filterModel.value" @input="filterCallback()" size="small"
+          :placeholder="column.filterPrompt" />
       </template>
       <template v-if="$slots[column.field]" #body="slotProps">
         <slot :name="column.field" v-bind="slotProps" />
@@ -108,7 +109,8 @@ export default {
         return {
           ...column,
           showFilterMenu: column.showFilterMenu || false,
-          filterSlot: `${column.field}Filter`
+          filterSlot: `${column.field}Filter`,
+          filterPrompt: column.filterPrompt || `Search by ${column.header}`
         }
       });
     }
