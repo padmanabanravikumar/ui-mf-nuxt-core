@@ -1,5 +1,6 @@
 <template>
-  <AppDataTable :values="users" :columns scrollHeight="calc(100vh - 240px)" :filters v-on:sort="onSort" />
+  <AppDataTable :values="users" :columns scrollHeight="calc(100vh - 240px)" :filters :totalRecords="1000"
+    :loading="false" v-on:sort="onSort" v-on:filters="onFilterChange" v-on:page="onPage" />
 </template>
 
 <script setup>
@@ -43,6 +44,14 @@ const onSort = (event) => {
   console.log(event);
 };
 
+const onFilterChange = (filters) => {
+  console.log(filters);
+};
+
+const onPage = (event) => {
+  console.log(event);
+};
+
 function aggregate(values) {
   return values.join(', ');
 }
@@ -69,4 +78,14 @@ function formatDate(date, format = 'M/D/YYYY') {
 
   return format.replace(/YYYY|MM|M|DD|D|HH|mm|ss/g, (match) => options[match]);
 }
+
+// store
+// {
+//   filters:{},
+//   users:[],
+//   page:1,
+//   sort:{},
+//   users:{1:[],2:[],3:[]},
+//   totalRecords:0
+// }
 </script>

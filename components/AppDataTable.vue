@@ -1,7 +1,7 @@
 <template>
   <DataTable :value="values" :removableSort :scrollable :stripedRows :showGridlines :paginator :size :rows
-    :filterDisplay :scrollHeight :globalFilterFields :filters v-on:update:filters="onFilterChange" v-on:sort="onSort"
-    :lazy>
+    :filterDisplay :scrollHeight :globalFilterFields :resizableColumns :filters :totalRecords :dataKey :rowHover
+    :loading v-on:update:filters="onFilter" v-on:sort="onSort" v-on:page="onPage" :lazy>
     <Column v-for="column of columns" :key="column.field" v-bind="column">
       <template v-if="column.filter" #filter="{ filterModel, filterCallback }">
         <AppInputText v-model="filterModel.value" @input="filterCallback()" size="small" placeholder="Search by name" />
@@ -13,10 +13,11 @@
 <script>
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import { useDebounceFn } from '@vueuse/core';
 
 export default {
   name: 'AppDataTable',
-  emits: ['update:filters', 'sort'],
+  emits: ['filters', 'sort', 'page'],
   props: {
     values: {
       type: Array,
@@ -73,11 +74,32 @@ export default {
     lazy: {
       type: Boolean,
       default: true
+    },
+    resizableColumns: {
+      type: Boolean,
+      default: true
+    },
+    totalRecords: {
+      type: Number,
+      default: 0
+    },
+    dataKey: {
+      type: [String, Function],
+      default: null
+    },
+    rowHover: {
+      type: Boolean,
+      default: true
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
-    onFilterChange(filters) {
-      this.$emit('update:filters', filters);
+    onPage(event) {
+      const { page } = event;
+      this.$emit('page', { ...event, page: page + 1 });
     },
     onSort(event) {
       const { sortOrder } = event;
@@ -85,7 +107,10 @@ export default {
         ...event,
         sortOrder: sortOrder === 1 ? 'asc' : sortOrder === -1 ? 'desc' : null
       });
-    }
+    },
+    onFilter: useDebounceFn(function (filters) {
+      this.$emit('filters', filters);
+    }, 500)
   },
   components: {
     DataTable,
