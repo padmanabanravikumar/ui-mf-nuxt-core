@@ -1,5 +1,5 @@
 <template>
-  <AppDataTable :values="users" :columns scrollHeight="calc(100vh - 240px)" v-model:filters="filters" />
+  <AppDataTable :values="users" :columns scrollHeight="calc(100vh - 240px)" :filters v-on:sort="onSort" />
 </template>
 
 <script setup>
@@ -29,7 +29,7 @@ const columns = [
   { field: 'approvalReferenceNo', header: 'Approval Reference No', sortable: true, filter: true },
 ];
 
-const filters = ref({
+const filters = {
   username: { value: null, matchMode: FilterMatchMode.CONTAINS },
   firstName: { value: null, matchMode: FilterMatchMode.CONTAINS },
   lastName: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -37,7 +37,11 @@ const filters = ref({
   phoneNumber: { value: null, matchMode: FilterMatchMode.CONTAINS },
   approvalBy: { value: null, matchMode: FilterMatchMode.CONTAINS },
   approvalReferenceNo: { value: null, matchMode: FilterMatchMode.CONTAINS }
-});
+};
+
+const onSort = (event) => {
+  console.log(event);
+};
 
 function aggregate(values) {
   return values.join(', ');

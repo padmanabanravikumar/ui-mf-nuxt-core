@@ -1,6 +1,7 @@
 <template>
   <DataTable :value="values" :removableSort :scrollable :stripedRows :showGridlines :paginator :size :rows
-    :filterDisplay :scrollHeight :globalFilterFields :filters v-on:update:filters="onFilterChange" :lazy>
+    :filterDisplay :scrollHeight :globalFilterFields :filters v-on:update:filters="onFilterChange" v-on:sort="onSort"
+    :lazy>
     <Column v-for="column of columns" :key="column.field" v-bind="column">
       <template v-if="column.filter" #filter="{ filterModel, filterCallback }">
         <AppInputText v-model="filterModel.value" @input="filterCallback()" size="small" placeholder="Search by name" />
@@ -15,7 +16,7 @@ import Column from 'primevue/column';
 
 export default {
   name: 'AppDataTable',
-  emits: ['update:filters'],
+  emits: ['update:filters', 'sort'],
   props: {
     values: {
       type: Array,
@@ -77,6 +78,13 @@ export default {
   methods: {
     onFilterChange(filters) {
       this.$emit('update:filters', filters);
+    },
+    onSort(event) {
+      const { sortOrder } = event;
+      this.$emit('sort', {
+        ...event,
+        sortOrder: sortOrder === 1 ? 'asc' : sortOrder === -1 ? 'desc' : null
+      });
     }
   },
   components: {

@@ -4,7 +4,7 @@
       <AppSidebar :routes="routes" class="shrink-0" />
       <div class="content-container" ref="pageContainer" v-on:scroll="handleScroll">
         <TopNavbar :isScrolled="isScrolled" />
-        <div class="main-container" v-on:click="onShow">
+        <div class="main-container">
           <slot />
         </div>
       </div>
@@ -15,17 +15,6 @@
 
 <script setup>
 import Toast from 'primevue/toast';
-import { useToast } from '#imports';
-const toast = useToast();
-
-const onShow = () => {
-  toast.add({
-    severity: 'success',
-    summary: 'Success Message',
-    detail: 'Order submitted',
-    life: 3000
-  });
-};
 
 const appConfig = useAppConfig();
 
